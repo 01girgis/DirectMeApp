@@ -18,15 +18,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //load CLLocation Services
-        checkServices()
+        loadServices()
     }
     
-    //Main Check Services Function
-    func checkServices(){
-        //error Check
+    //Main Services Function
+    func loadServices(){
+        //Check Services error
         if CLLocationManager.locationServicesEnabled() {
             manageLocation.delegate = self
             manageLocation.desiredAccuracy = kCLLocationAccuracyBest
+            //call Authorization
+            authorizationCheck()
         }
         else{
             //debug
@@ -34,6 +36,27 @@ class ViewController: UIViewController {
         }
     }
     
+    //Authorization Procedures
+    func authorizationCheck(){
+        
+        switch manageLocation.authorizationStatus {
+        case .authorizedWhenInUse:
+            myMAp.showsUserLocation = true
+            break
+        case .denied:
+            break
+        case .restricted:
+            break
+        case .notDetermined:
+            manageLocation.requestWhenInUseAuthorization()
+            break
+        case .authorizedAlways:
+            break
+        default:
+            break
+        }
+        
+    }
     
     
 }
