@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         switch manageLocation.authorizationStatus {
         case .authorizedWhenInUse:
             myMAp.showsUserLocation = true
+            userLocationView()
             break
         case .denied:
             break
@@ -58,6 +59,13 @@ class ViewController: UIViewController {
         
     }
     
+    //center User Location
+    func userLocationView(){
+        if let usrLocation  = manageLocation.location?.coordinate{
+            let usrView = MKCoordinateRegion.init(center: usrLocation, latitudinalMeters: 4000, longitudinalMeters: 4000)
+            myMAp.setRegion(usrView, animated: true)
+        }
+    }
     
 }
 
