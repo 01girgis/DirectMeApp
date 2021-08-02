@@ -97,6 +97,9 @@
                             <constraint firstItem="zft-7l-FyJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qd5-Dm-dKJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myMAp" destination="JLa-h4-WSf" id="glZ-ox-bke"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
