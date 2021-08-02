@@ -16,13 +16,29 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //load CLLocation Services
+        checkServices()
     }
-
-
+    
+    //Main Check Services Function
+    func checkServices(){
+        //error Check
+        if CLLocationManager.locationServicesEnabled() {
+            manageLocation.delegate = self
+            manageLocation.desiredAccuracy = kCLLocationAccuracyBest
+        }
+        else{
+            //debug
+            print("error 0")
+        }
+    }
+    
+    
+    
 }
 
-//CORELocation Delegate Implementation 
+//CORELocation Delegate Implementation
 extension ViewController:CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
