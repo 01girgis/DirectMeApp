@@ -79,6 +79,12 @@ extension ViewController:CLLocationManagerDelegate {
             return
         }
         print("\(location.coordinate.latitude) //  \(location.coordinate.longitude)") //Debug Purpose
+        
+        //Track Real-time Navigation Usr Location on Screen
+        let centerLocation    = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let centerLocationView = MKCoordinateRegion.init(center: centerLocation, latitudinalMeters: 500, longitudinalMeters: 500)
+        myMAp.setRegion(centerLocationView, animated: true)
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
