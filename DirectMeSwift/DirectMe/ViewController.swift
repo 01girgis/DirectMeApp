@@ -41,8 +41,9 @@ class ViewController: UIViewController {
         
         switch manageLocation.authorizationStatus {
         case .authorizedWhenInUse:
-            myMAp.showsUserLocation = true
-            userLocationView()
+            myMAp.showsUserLocation = true             //Show Usr Location
+            userLocationView()                        //Center Usr Location view on screen
+            manageLocation.startUpdatingLocation()   //Start Update usr location
             break
         case .denied:
             break
@@ -72,9 +73,17 @@ class ViewController: UIViewController {
 //CORELocation Delegate Implementation
 extension ViewController:CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+        //Update Coordinates
+        guard let location = locations.last else {
+            print("error updat location.last")
+            return
+        }
+        print("\(location.coordinate.latitude) //  \(location.coordinate.longitude)") //Debug Purpose
     }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
+        // on change authorization
+        authorizationCheck()
     }
 }
+
