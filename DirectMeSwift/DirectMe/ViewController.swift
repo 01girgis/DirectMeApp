@@ -60,6 +60,11 @@ class ViewController: UIViewController {
         
     }
     
+    //Relocate Usr Location button
+    @IBAction func centerMeBtn(_ sender: Any) {
+        userLocationView()
+    }
+    
     //center User Location
     func userLocationView(){
         if let usrLocation  = manageLocation.location?.coordinate{
