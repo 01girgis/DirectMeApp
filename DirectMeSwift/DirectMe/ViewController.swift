@@ -104,8 +104,17 @@ extension ViewController:CLLocationManagerDelegate {
             self.inputText.text =  firstDestination.name
         }
         
+        //Erase current usr Location form text field for new search
+        inputText.addTarget(self, action: #selector(textDidChange), for: .editingDidBegin)
     }
-
+    
+    //Erase function 
+    @objc func textDidChange(){
+            if inputText.text != ""  {
+                inputText.text = ""
+            }
+        }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // on change authorization
         authorizationCheck()
