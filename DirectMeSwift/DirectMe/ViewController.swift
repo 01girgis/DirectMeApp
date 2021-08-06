@@ -99,7 +99,9 @@ extension ViewController:CLLocationManagerDelegate {
         //Get  GeoCoded Information
         CLGeocoder().reverseGeocodeLocation(location) { places, _ in
             guard let firstDestination = places?.first else { return }
-            print(firstDestination.name!)
+            
+            //addd current location to search field
+            self.inputText.text =  firstDestination.name
         }
         
     }
