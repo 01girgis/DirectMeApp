@@ -11,6 +11,8 @@ import MapKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var myMAp: MKMapView!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var inputText: UITextField!
     
     let manageLocation  = CLLocationManager()
     
@@ -25,8 +27,10 @@ class ViewController: UIViewController {
     func loadServices(){
         //Check Services error
         if CLLocationManager.locationServicesEnabled() {
+            //CLLocation delegation
             manageLocation.delegate = self
             manageLocation.desiredAccuracy = kCLLocationAccuracyBest
+            
             //call Authorization
             authorizationCheck()
         }
@@ -75,7 +79,7 @@ class ViewController: UIViewController {
     
 }
 
-//CORELocation Delegate Implementation
+// MARK: -CORELocation Delegate Implementation
 extension ViewController:CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //Update Coordinates
@@ -85,13 +89,21 @@ extension ViewController:CLLocationManagerDelegate {
         }
         print("\(location.coordinate.latitude) //  \(location.coordinate.longitude)") //Debug Purpose
         
+        
         //Track Real-time Navigation Usr Location on Screen
         let centerLocation    = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let centerLocationView = MKCoordinateRegion.init(center: centerLocation, latitudinalMeters: 500, longitudinalMeters: 500)
         myMAp.setRegion(centerLocationView, animated: true)
         
+        
+        //Get  GeoCoded Information
+        CLGeocoder().reverseGeocodeLocation(location) { places, _ in
+            guard let firstDestination = places?.first else { return }
+            print(firstDestination.name!)
+        }
+        
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // on change authorization
         authorizationCheck()

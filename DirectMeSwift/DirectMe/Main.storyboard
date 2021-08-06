@@ -101,6 +101,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="FLH-pm-G21" id="4NJ-p5-AdZ"/>
+                        <outlet property="inputText" destination="ew1-Um-XM2" id="zk1-rA-k46"/>
                         <outlet property="myMAp" destination="JLa-h4-WSf" id="glZ-ox-bke"/>
                     </connections>
                 </viewController>
