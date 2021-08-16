@@ -110,14 +110,28 @@ extension ViewController:CLLocationManagerDelegate {
         //Erase current usr Location form text field for new search
         inputText.addTarget(self, action: #selector(textDidChange), for: .editingDidBegin)
         
+        //Get Address from Input Text for Search Completer Suggestion Result
+        inputText.addTarget(self, action: #selector(getAddressProccess), for: .editingChanged)
     }
     
     //Erase function 
     @objc func textDidChange(){
-            if inputText.text != ""  {
-                inputText.text = ""
-            }
+        if inputText.text != ""  {
+            inputText.text = ""
         }
+    }
+    
+    //Getting Address to Search Completer Suggestion
+    @objc func getAddressProccess(){
+        guard let completerQuery = inputText.text else {
+            if searchCompleter.isSearching {
+                searchCompleter.cancel()
+            }
+            return
+        }
+        searchCompleter.queryFragment = completerQuery
+    }
+    
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // on change authorization
@@ -130,7 +144,12 @@ extension ViewController:CLLocationManagerDelegate {
 extension ViewController:MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-   
+        guard let suggestResult = completer.results.first else {
+            return
+        }
+        
+        //debug
+        print("\(suggestResult)")
     }
     
     //error Handler
