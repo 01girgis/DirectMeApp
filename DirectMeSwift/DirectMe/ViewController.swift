@@ -13,8 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var myMAp: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var inputText: UITextField!
+    @IBOutlet weak var completerLabel: UILabel!
     
-    let manageLocation  = CLLocationManager()
+    let manageLocation  = CLLocationManager()          //Core Location Instance
+    let searchCompleter =  MKLocalSearchCompleter()    //Search Completer Instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,7 @@ class ViewController: UIViewController {
             myMAp.showsUserLocation = true             //Show Usr Location
             userLocationView()                        //Center Usr Location view on screen
             manageLocation.startUpdatingLocation()   //Start Update usr location
+            searchCompleter.delegate = self         //Search Completer Delegation
             break
         case .denied:
             break
@@ -106,6 +109,7 @@ extension ViewController:CLLocationManagerDelegate {
         
         //Erase current usr Location form text field for new search
         inputText.addTarget(self, action: #selector(textDidChange), for: .editingDidBegin)
+        
     }
     
     //Erase function 
@@ -121,3 +125,17 @@ extension ViewController:CLLocationManagerDelegate {
     }
 }
 
+
+// MARK: - LocalSearchCompleter Delegate Implementation
+extension ViewController:MKLocalSearchCompleterDelegate {
+    
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+   
+    }
+    
+    //error Handler
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        
+        print(error)
+    }
+}
