@@ -153,6 +153,20 @@ extension ViewController:MKLocalSearchCompleterDelegate {
         //Append first Suggestion to  Search Completer Label
         completerLabel.text = suggestResult.title
         completerLabel.isHidden = false
+        
+        // Enable User Interaction
+        completerLabel.isUserInteractionEnabled = true
+        
+        //Gesture Recognizer for onClick Event to copy from Search Completer Label to Input Text
+        let gestureEvent = UITapGestureRecognizer(target: self, action: #selector(copyText))
+        completerLabel.addGestureRecognizer(gestureEvent)
+        
+    }
+    
+    //Copy Function
+    @objc func copyText(){
+        inputText.text = completerLabel.text
+        completerLabel.isHidden = true
     }
     
     //error Handler
