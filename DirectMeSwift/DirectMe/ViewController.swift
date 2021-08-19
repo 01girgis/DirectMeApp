@@ -147,12 +147,18 @@ extension ViewController:MKLocalSearchCompleterDelegate {
         guard let suggestResult = completer.results.first else {
             //in Case of Invalid Input Address
             completerLabel.text = "Invalid Address"
+            completerLabel.textColor = .systemRed
+            
+            // Disable User Interaction
+            completerLabel.isUserInteractionEnabled = false
+            
             return
         }
         
         //Append first Suggestion to  Search Completer Label
         completerLabel.text = suggestResult.title
         completerLabel.isHidden = false
+        completerLabel.textColor = .black
         
         // Enable User Interaction
         completerLabel.isUserInteractionEnabled = true
