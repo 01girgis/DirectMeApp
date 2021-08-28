@@ -18,11 +18,20 @@ extension ViewController{
             //Condition Check
             guard connection.status == .satisfied
             else{
-                DispatchQueue.main.async { print("No Connection") }
+                DispatchQueue.main.async {
+                    self.addressLabel.text = "No Internet"
+                    self.addressLabel.textColor  = .systemRed
+                }
                 return
             }
             
-            DispatchQueue.main.async { print("connected")}
+            //Load App Services In Case of Connection to Internet
+            DispatchQueue.main.async {
+                self.addressLabel.text = "Type a Destination ?"
+                self.addressLabel.textColor  = .black
+                //
+                self.loadServices()
+            }
             
         }
         
@@ -30,6 +39,7 @@ extension ViewController{
         let qu = DispatchQueue(label: "Network")
         networkMonitor.start(queue: qu)
     }
+    
     
     //Main Services Function
     func loadServices(){

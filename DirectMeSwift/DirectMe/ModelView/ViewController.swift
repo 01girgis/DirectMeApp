@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //load CLLocation Services
-        loadServices()
+        //load CLLocation Services & Network Connection
+        NetworkCheck()
     }
     
 }
