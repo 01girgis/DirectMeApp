@@ -7,7 +7,30 @@
 import Foundation
 import CoreLocation
 import MapKit
+import Network
+
 extension ViewController{
+    
+    //Network Check Condition
+    func NetworkCheck(){
+        networkMonitor.pathUpdateHandler = { connection in
+            
+            //Condition Check
+            guard connection.status == .satisfied
+            else{
+                DispatchQueue.main.async { print("No Connection") }
+                return
+            }
+            
+            DispatchQueue.main.async { print("connected")}
+            
+        }
+        
+        //Start Service
+        let qu = DispatchQueue(label: "Network")
+        networkMonitor.start(queue: qu)
+    }
+    
     //Main Services Function
     func loadServices(){
         //Check Services error

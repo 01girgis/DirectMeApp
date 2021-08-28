@@ -7,6 +7,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import Network
 
 class ViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class ViewController: UIViewController {
     
     let manageLocation  = CLLocationManager()          //Core Location Instance
     let searchCompleter =  MKLocalSearchCompleter()    //Search Completer Instance
+    let networkMonitor = NWPathMonitor()               //NetWork Monitor  Instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
