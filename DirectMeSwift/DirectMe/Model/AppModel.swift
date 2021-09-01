@@ -83,6 +83,8 @@ extension ViewController{
         
     }
     
+    /* MARK:- CONTROL BUTTONS ------------------------------------------------------------------------------------------ */
+    
     //Relocate Usr Location button
     @IBAction func centerMeBtn(_ sender: Any) {
         userLocationView()
@@ -95,4 +97,21 @@ extension ViewController{
             myMAp.setRegion(usrView, animated: true)
         }
     }
+    
+    //Navigation Button Setup
+    @IBAction func navigationBtn (_ sender: Any){
+        let initialPlace = (manageLocation.location?.coordinate)!
+        
+        //Geo Addressing
+        let geoAddrees = CLGeocoder()
+        geoAddrees.geocodeAddressString(completerLabel.text ?? ""){ (lastPlace,error) in
+            guard let myfinalDestination = lastPlace,
+                  let lastLocation = myfinalDestination.first?.location?.coordinate else  {
+                return
+            }
+            print(lastLocation)
+            print(initialPlace)
+        }
+    }
+    
 }
