@@ -109,9 +109,24 @@ extension ViewController{
                   let lastLocation = myfinalDestination.first?.location?.coordinate else  {
                 return
             }
-            print(lastLocation)
-            print(initialPlace)
+            
+            //Pass Addresses for Routing Proccess
+            self.routingProccess(currentLocation: initialPlace, destinationPlace: lastLocation)
         }
+    }
+    
+    //Routing Function
+    func routingProccess(currentLocation:CLLocationCoordinate2D , destinationPlace:CLLocationCoordinate2D){
+        //MapKit DirectionRquest
+        let directionsRequest = MKDirections.Request()
+        
+        //Get Initial Addres & Address to Go
+        directionsRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: currentLocation, addressDictionary: nil))
+        directionsRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: destinationPlace, addressDictionary: nil))
+        directionsRequest.requestsAlternateRoutes = true
+        directionsRequest.transportType = .automobile
+        
+        let directionsShow = MKDirections(request: directionsRequest)
     }
     
 }
