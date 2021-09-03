@@ -48,3 +48,12 @@ extension ViewController:MKLocalSearchCompleterDelegate {
         print(error)
     }
 }
+
+// MARK: - LocalSearchCompleter Delegate Implementation
+extension ViewController:MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let render = MKPolylineRenderer(overlay: overlay)
+        render.strokeColor = .systemBlue
+        return render
+    }
+}

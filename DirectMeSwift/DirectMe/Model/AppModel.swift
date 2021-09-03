@@ -127,6 +127,23 @@ extension ViewController{
         directionsRequest.transportType = .automobile
         
         let directionsShow = MKDirections(request: directionsRequest)
+        
+        //Routing Addresses
+        directionsShow.calculate(completionHandler: {(response,error)->Void in
+            guard let getResponse = response else {
+                //no address
+                print ("error addressing")
+                return
+            }
+            
+            //Show Route between User Location & Destination Address
+            if let route = getResponse.routes.first {
+                self.myMAp.addOverlay(route.polyline)
+                let rect = route.polyline.boundingMapRect
+                self.myMAp.setRegion(MKCoordinateRegion(rect), animated: true)
+            }
+            
+        })
     }
     
 }
