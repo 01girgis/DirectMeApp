@@ -49,7 +49,7 @@ extension ViewController:MKLocalSearchCompleterDelegate {
     }
 }
 
-// MARK: - LocalSearchCompleter Delegate Implementation
+// MARK: - MapKit Delegate Implementation
 extension ViewController:MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let render = MKPolylineRenderer(overlay: overlay)

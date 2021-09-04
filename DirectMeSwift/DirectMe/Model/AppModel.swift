@@ -67,6 +67,7 @@ extension ViewController{
             userLocationView()                        //Center Usr Location view on screen
             manageLocation.startUpdatingLocation()   //Start Update usr location
             searchCompleter.delegate = self         //Search Completer Delegation
+            myMAp.delegate = self                  //mapKit Delegate
             break
         case .denied:
             break
