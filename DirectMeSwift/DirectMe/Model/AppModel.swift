@@ -108,6 +108,8 @@ extension ViewController{
         geoAddrees.geocodeAddressString(completerLabel.text ?? ""){ (lastPlace,error) in
             guard let myfinalDestination = lastPlace,
                   let lastLocation = myfinalDestination.first?.location?.coordinate else  {
+                //Debug Purpose
+                print("error getting address")
                 return
             }
             
@@ -132,7 +134,15 @@ extension ViewController{
         //Routing Addresses
         directionsShow.calculate(completionHandler: {(response,error)->Void in
             guard let getResponse = response else {
-                //no address
+               
+                //in Case of Invalid Routing To Address
+                self.completerLabel.text = "No Route By Car"
+                self.completerLabel.textColor = .systemRed
+                self.completerLabel.isHidden = false
+                // Disable User Interaction
+                self.completerLabel.isUserInteractionEnabled = false
+                
+                //No Routing
                 print ("error addressing")
                 return
             }
