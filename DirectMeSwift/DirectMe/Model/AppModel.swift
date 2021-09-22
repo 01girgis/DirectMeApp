@@ -89,6 +89,11 @@ extension ViewController{
     //Relocate Usr Location button
     @IBAction func centerMeBtn(_ sender: Any) {
         userLocationView()
+        
+        //Clear Navigation Status
+        self.centerLabel.setTitle("Show-ME", for: .normal)
+        self.myMAp.removeOverlays(self.myMAp.overlays)
+        self.myMAp.removeAnnotations(self.myMAp.annotations)
     }
     
     //center User Location
@@ -156,6 +161,9 @@ extension ViewController{
                 let rect = route.polyline.boundingMapRect
                 self.myMAp.setRegion(MKCoordinateRegion(rect), animated: true)
             }
+            
+            //Set New Title For Center Button
+            self.centerLabel.setTitle("Stop Navigation", for: .normal)
             
         })
     }
