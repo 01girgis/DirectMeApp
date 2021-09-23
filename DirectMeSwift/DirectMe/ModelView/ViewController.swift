@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var completerLabel: UILabel!
     @IBOutlet weak var centerLabel: UIButton!
+    @IBOutlet weak var speedometerLabel: UILabel!
     
     let manageLocation  = CLLocationManager()          //Core Location Instance
     let searchCompleter =  MKLocalSearchCompleter()    //Search Completer Instance

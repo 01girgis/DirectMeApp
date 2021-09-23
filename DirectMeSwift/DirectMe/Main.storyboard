@@ -41,11 +41,17 @@
                                         <rect key="frame" x="0.0" y="100" width="374" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qPa-71-kry">
-                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="50"/>
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fY-9u-sZ8">
+                                                <rect key="frame" x="93.5" y="0.0" width="93.5" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfl-6S-Af5">
-                                                <rect key="frame" x="124.5" y="0.0" width="125" height="50"/>
+                                                <rect key="frame" x="187" y="0.0" width="93.5" height="50"/>
                                                 <state key="normal" title="Center">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -57,7 +63,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAX-vP-8aa">
-                                                <rect key="frame" x="249.5" y="0.0" width="124.5" height="50"/>
+                                                <rect key="frame" x="280.5" y="0.0" width="93.5" height="50"/>
                                                 <state key="normal" title="Navigate">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -120,6 +126,7 @@
                         <outlet property="completerLabel" destination="ji1-xb-pFY" id="oVd-Ny-4QR"/>
                         <outlet property="inputText" destination="ew1-Um-XM2" id="zk1-rA-k46"/>
                         <outlet property="myMAp" destination="JLa-h4-WSf" id="glZ-ox-bke"/>
+                        <outlet property="speedometerLabel" destination="8fY-9u-sZ8" id="lIx-AB-54R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
