@@ -18,6 +18,12 @@ extension ViewController:CLLocationManagerDelegate {
         }
         print("\(location.coordinate.latitude) //  \(location.coordinate.longitude)") //Debug Purpose
         
+        //Implement Speedometer
+        let objectSpeed = location.speed
+        guard objectSpeed >= 0 else {
+            return
+        }
+        speedometerLabel.text = "\(objectSpeed) KM"
         
         //Track Real-time Navigation Usr Location on Screen
         let centerLocation    = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
