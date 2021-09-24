@@ -19,10 +19,16 @@ extension ViewController:CLLocationManagerDelegate {
         print("\(location.coordinate.latitude) //  \(location.coordinate.longitude)") //Debug Purpose
         
         //Implement Speedometer
-        let objectSpeed = location.speed
-        guard objectSpeed >= 0 else {
-            return
+        var objectSpeed = location.speed
+        if objectSpeed >= 0.0{
+            speedometerLabel.text = "\(objectSpeed) KM"
+            print("1")
         }
+        else{
+            objectSpeed = 0.0
+            print("0")
+        }
+
         speedometerLabel.text = "\(objectSpeed) KM"
         
         //Track Real-time Navigation Usr Location on Screen
