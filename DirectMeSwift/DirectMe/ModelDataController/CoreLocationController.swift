@@ -75,4 +75,33 @@ extension ViewController:CLLocationManagerDelegate {
         // on change authorization
         authorizationCheck()
     }
+     
+    //Orientation Failure
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        //get CLError Content
+        if let errLocation = error as? CLError{
+            switch errLocation {
+            
+            case CLError.locationUnknown:
+                //in Case of Unknown Location
+                self.completerLabel.text = "Location Orientation Lost"
+                self.completerLabel.textColor = .systemRed
+                self.completerLabel.isHidden = false
+                print("no Location")
+                
+            case CLError.denied:
+                //in Case of Deny Access to Location Services
+                self.completerLabel.text = "Unable to Obtain Location Access"
+                self.completerLabel.textColor = .systemRed
+                self.completerLabel.isHidden = false
+                print("denied")
+            //Head to Main App Function Load
+            case CLError.network:
+                NetworkCheck()
+                //other Error
+            default:
+                print(errLocation.localizedDescription)
+            }
+        }
+    }
 }
