@@ -95,6 +95,11 @@ extension ViewController{
             //Set New Title For Center Button
             self.centerLabel.setTitle("Stop Navigation", for: .normal)
             
+            //Distance Calculation
+            let distance = getResponse.routes.first!.distance
+            self.addressLabel.text = "(\(distance/1000) KM) To Your Destination"
+            print("\(distance/1000) KM")
+            
         })
     }
     
