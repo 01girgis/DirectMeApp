@@ -39,6 +39,10 @@ extension ViewController{
         geoAddrees.geocodeAddressString(completerLabel.text ?? ""){ (lastPlace,error) in
             guard let myfinalDestination = lastPlace,
                   let lastLocation = myfinalDestination.first?.location?.coordinate else  {
+                //in Case of Invalid Routing To Address
+                self.completerLabel.text = "No Valid Address Or it's your location"
+                self.completerLabel.textColor = .systemRed
+                self.completerLabel.isHidden = false
                 //Debug Purpose
                 print("error getting address")
                 return
