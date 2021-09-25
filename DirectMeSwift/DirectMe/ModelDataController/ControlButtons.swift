@@ -19,6 +19,10 @@ extension ViewController{
         self.centerLabel.setTitle("Show-ME", for: .normal)
         self.myMAp.removeOverlays(self.myMAp.overlays)
         self.myMAp.removeAnnotations(self.myMAp.annotations)
+        
+        //
+        addressLabel.text = "Type a New Destination ?"
+        manageLocation.stopUpdatingLocation()
     }
     
     //center User Location
