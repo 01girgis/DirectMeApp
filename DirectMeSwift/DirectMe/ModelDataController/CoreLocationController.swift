@@ -41,6 +41,16 @@ extension ViewController:CLLocationManagerDelegate {
                 print("Destination 2D FETCHING ERROR")
                 return
             }
+            //Pass 2D Orentation
+            distance(from: initialPlace , to: lastLocation)
+        }
+        
+        //Calculate Distance Func
+        func distance(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
+            let from = CLLocation(latitude: from.latitude, longitude: from.longitude) //get First Coordination
+            let to = CLLocation(latitude: to.latitude, longitude: to.longitude)       //get Second Coordination
+            let distanceVal = from.distance(from: to)            
+            self.addressLabel.text = String(format: "Remains: %.2f To Your Destination", (distanceVal/1000))
         }
         
         //Track Real-time Navigation Usr Location on Screen
