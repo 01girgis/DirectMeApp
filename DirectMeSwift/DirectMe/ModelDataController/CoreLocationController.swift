@@ -31,6 +31,18 @@ extension ViewController:CLLocationManagerDelegate {
 
         speedometerLabel.text = "\(objectSpeed) KM"
         
+        //Track Real-time Distance Tracker
+        let initialPlace = (manageLocation.location?.coordinate)! //First 2D Coordination
+        let geoAddrees = CLGeocoder()                  //Convert  String To CLLocationCoordinate2D
+        geoAddrees.geocodeAddressString(completerLabel.text ?? ""){ (lastPlace,error) in
+            guard let myfinalDestination = lastPlace,
+                  let lastLocation = myfinalDestination.first?.location?.coordinate else  {
+                //Debug Purpose
+                print("Destination 2D FETCHING ERROR")
+                return
+            }
+        }
+        
         //Track Real-time Navigation Usr Location on Screen
         let centerLocation    = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let centerLocationView = MKCoordinateRegion.init(center: centerLocation, latitudinalMeters: 500, longitudinalMeters: 500)
