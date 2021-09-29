@@ -7,15 +7,15 @@
 ## App Interface Samples.
 <p align="center">
 <img src="/DirectMeSwift/DirectMe/Samples/1.png"  width="400" height="800" />
-<img src="/DirectMeSwift/DirectMe/samples/2.png"  width="400" height="800" />
-<img src="/DirectMeSwift/DirectMe/samples/3.png"  width="400" height="800" />
-<img src="/DirectMeSwift/DirectMe/samples/4.png"  width="400" height="800" />
+<img src="/DirectMeSwift/DirectMe/Samples/2.png"  width="400" height="800" />
+<img src="/DirectMeSwift/DirectMe/Samples/3.png"  width="400" height="800" />
+<img src="/DirectMeSwift/DirectMe/Samples/4.png"  width="400" height="800" />
 </p>
 
 ## error Handling .
 <p align="center">
 <img src="/DirectMeSwift/DirectMe/Samples/5.png"  width="400" height="800" />
-<img src="/DirectMeSwift/DirectMe/samples/6.png"  width="400" height="800" />
+<img src="/DirectMeSwift/DirectMe/Samples/6.png"  width="400" height="800" />
 </p>
 
 
