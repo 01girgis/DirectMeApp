@@ -5,26 +5,19 @@
 - Project is completely written in Swift. 
 
 ## App Interface Samples.
-<p>
-<img src="Samples/1.png"  />
-</p>
-<p>
-<img src="Samples/2.png"  />
-</p>
-<p>
-<img src="Samples/3.png"  />
+<p align="center">
+<img src="/DirectMeSwift/DirectMe/Samples/1.png"  width="400" height="800" />
+<img src="/DirectMeSwift/DirectMe/samples/2.png"  width="400" height="800" />
+<img src="/DirectMeSwift/DirectMe/samples/3.png"  width="400" height="800" />
+<img src="/DirectMeSwift/DirectMe/samples/4.png"  width="400" height="800" />
 </p>
 
 ## error Handling .
-<p>
-<img src="Samples/5.png"  />
+<p align="center">
+<img src="/DirectMeSwift/DirectMe/Samples/5.png"  width="400" height="800" />
+<img src="/DirectMeSwift/DirectMe/samples/6.png"  width="400" height="800" />
 </p>
-<p>
-<img src="Samples/6.png"  />
-</p>
-<p>
-<img src="Samples/7.png"  />
-</p>
+
 
 ## Significant Code Lines .   
 - Conversion String To CLLocationCoordinate2D. 
