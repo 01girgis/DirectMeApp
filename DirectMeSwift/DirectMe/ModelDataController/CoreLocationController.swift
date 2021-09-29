@@ -50,7 +50,7 @@ extension ViewController:CLLocationManagerDelegate {
             let from = CLLocation(latitude: from.latitude, longitude: from.longitude) //get First Coordination
             let to = CLLocation(latitude: to.latitude, longitude: to.longitude)       //get Second Coordination
             let distanceVal = from.distance(from: to)            
-            self.addressLabel.text = String(format: "Remains: %.2f To Your Destination", (distanceVal/1000))
+            self.addressLabel.text = String(format: "Remains: %.2f KM ", (distanceVal/1000))
         }
         
         //Track Real-time Navigation Usr Location on Screen

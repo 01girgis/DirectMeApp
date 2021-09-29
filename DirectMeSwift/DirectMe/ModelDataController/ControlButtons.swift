@@ -16,13 +16,14 @@ extension ViewController{
         userLocationView()
         
         //Clear Navigation Status
-        self.centerLabel.setTitle("Show-ME", for: .normal)
+        manageLocation.stopUpdatingLocation()
         self.myMAp.removeOverlays(self.myMAp.overlays)
         self.myMAp.removeAnnotations(self.myMAp.annotations)
+        self.centerLabel.setTitle("Show-ME", for: .normal)
         
-        //
+        //Clear Inputs
+        speedometerLabel.text = "0.0 KM"
         addressLabel.text = "Type a New Destination ?"
-        manageLocation.stopUpdatingLocation()
     }
     
     //center User Location
@@ -36,8 +37,9 @@ extension ViewController{
     /* MARK:- NAVIGATION BUTTON  */
     //Navigation Button Setup
     @IBAction func navigationBtn (_ sender: Any){
-        let initialPlace = (manageLocation.location?.coordinate)!
+        manageLocation.startUpdatingLocation()
         
+        let initialPlace = (manageLocation.location?.coordinate)!
         //Geo Addressing
         let geoAddrees = CLGeocoder()
         geoAddrees.geocodeAddressString(completerLabel.text ?? ""){ (lastPlace,error) in
